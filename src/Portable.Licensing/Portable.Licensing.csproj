@@ -2,12 +2,11 @@
 
 	<PropertyGroup>
 		<Authors>Nauck IT KG</Authors>
-		<TargetFrameworks>net45;netstandard2.0;net5.0</TargetFrameworks>
+		<TargetFrameworks>net452;netstandard2.0;net5.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<AssemblyName>CoreCompat.Portable.Licensing</AssemblyName>
 		<AssemblyOriginatorKeyFile>Portable.Licensing.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>true</SignAssembly>
-		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
 		<PackageId>CoreCompat.Portable.Licensing</PackageId>
 		<PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.5' ">$(PackageTargetFallback);dotnet</PackageTargetFallback>
 		<PackageTags>Portable.Licensing Portable Licensing License Key KeyGenerator Protection Signing Nauck</PackageTags>
@@ -19,11 +18,10 @@
 Portable.Licensing is uses cryptographic algorithms to help you ensure that your software is protected.</Description>
 	</PropertyGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
 		<Reference Include="System.IO" />
-		<Reference Include="System.Runtime" />
 		<Reference Include="System.Runtime.Extensions" />
 		<Reference Include="System.Security" />
 		<Reference Include="System" />
@@ -36,7 +34,7 @@ Portable.Licensing is uses cryptographic algorithms to help you ensure that your
 		<PackageReference Include="Portable.BouncyCastle" Version="1.8.5" />
 	</ItemGroup>
 	
-	<ItemGroup Condition=" '$(TargetFramework)' != 'net45' ">
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net452' ">
 		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="4.7.0" />
 	</ItemGroup>
 
