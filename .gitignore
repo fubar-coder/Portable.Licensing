@@ -38,3 +38,5 @@ _ReSharper*/
 
 [Aa]rtifacts/
 *.lock.json
+
+src/.idea/
