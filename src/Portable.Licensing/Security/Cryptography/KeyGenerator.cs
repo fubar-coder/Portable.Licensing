@@ -4,7 +4,7 @@
     {
         public static KeyGenerator Create()
         {
-#if NET452 || NETSTANDARD2_0
+#if NET462 || NETSTANDARD2_0
             return new BouncyKeyGenerator();
 #else
             return new NativeKeyGenerator();

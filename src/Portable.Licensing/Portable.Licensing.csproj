@@ -2,13 +2,13 @@
 
 	<PropertyGroup>
 		<Authors>Nauck IT KG</Authors>
-		<TargetFrameworks>net452;netstandard2.0;net5.0</TargetFrameworks>
+		<TargetFrameworks>net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<AssemblyName>CoreCompat.Portable.Licensing</AssemblyName>
 		<AssemblyOriginatorKeyFile>Portable.Licensing.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>true</SignAssembly>
+		<LangVersion>latestMajor</LangVersion>
 		<PackageId>CoreCompat.Portable.Licensing</PackageId>
-		<PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.5' ">$(PackageTargetFallback);dotnet</PackageTargetFallback>
 		<PackageTags>Portable.Licensing Portable Licensing License Key KeyGenerator Protection Signing Nauck</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -16,9 +16,10 @@
 		<Description>Portable.Licensing is a cross platform software licensing framework which allows you to implement licensing into your application or library. It provides you all tools to create and validate licenses for your software.
 
 Portable.Licensing is uses cryptographic algorithms to help you ensure that your software is protected.</Description>
+		<DisableFody Condition=" '$(TargetFramework)' != 'net462' and '$(TargetFramework)' != 'netstandard2.0' ">true</DisableFody>
 	</PropertyGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
 		<Reference Include="System.IO" />
@@ -27,20 +28,19 @@ Portable.Licensing is uses cryptographic algorithms to help you ensure that your
 		<Reference Include="System" />
 		<Reference Include="Microsoft.CSharp" />
 
-		<PackageReference Include="Portable.BouncyCastle" Version="1.8.5" />
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="Portable.BouncyCastle" Version="1.8.5" />
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
 	</ItemGroup>
 	
-	<ItemGroup Condition=" '$(TargetFramework)' != 'net452' ">
-		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="4.7.0" />
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net462' ">
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.2.31" PrivateAssets="All" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net45" PrivateAssets="All" Version="1.0.0" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 </Project>
