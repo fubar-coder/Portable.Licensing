@@ -32,7 +32,7 @@ Portable.Licensing is uses cryptographic algorithms to help you ensure that your
 		<PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
 	</ItemGroup>
 	
-	<ItemGroup Condition=" '$(TargetFramework)' != 'net462' ">
+	<ItemGroup Condition=" '$(TargetFramework)' != 'net462' and '$(TargetFramework)' != 'netstandard2.0' ">
 		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
 	</ItemGroup>
 
