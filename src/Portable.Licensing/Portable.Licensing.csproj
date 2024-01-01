@@ -4,11 +4,9 @@
 		<Authors>Nauck IT KG</Authors>
 		<TargetFrameworks>net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<AssemblyName>CoreCompat.Portable.Licensing</AssemblyName>
 		<AssemblyOriginatorKeyFile>Portable.Licensing.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>true</SignAssembly>
 		<LangVersion>latestMajor</LangVersion>
-		<PackageId>CoreCompat.Portable.Licensing</PackageId>
 		<PackageTags>Portable.Licensing Portable Licensing License Key KeyGenerator Protection Signing Nauck</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
