@@ -16,7 +16,6 @@
 		<Description>Portable.Licensing is a cross platform software licensing framework which allows you to implement licensing into your application or library. It provides you all tools to create and validate licenses for your software.
 
 Portable.Licensing is uses cryptographic algorithms to help you ensure that your software is protected.</Description>
-		<DisableFody Condition=" '$(TargetFramework)' != 'net462' and '$(TargetFramework)' != 'netstandard2.0' ">true</DisableFody>
 	</PropertyGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
