@@ -4,7 +4,7 @@
     {
         public static Signer Create()
         {
-#if NET462 || NETSTANDARD2_0
+#if NET472 || NETSTANDARD2_0
             return new BouncySigner();
 #else
             return new NativeSigner();

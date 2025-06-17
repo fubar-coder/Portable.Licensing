@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<Authors>Nauck IT KG</Authors>
-		<TargetFrameworks>net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net472;netstandard2.0;net6.0;net8.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<AssemblyOriginatorKeyFile>Portable.Licensing.snk</AssemblyOriginatorKeyFile>
 		<SignAssembly>true</SignAssembly>
@@ -16,7 +16,7 @@
 Portable.Licensing is uses cryptographic algorithms to help you ensure that your software is protected.</Description>
 	</PropertyGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
 		<Reference Include="System.IO" />
@@ -24,20 +24,22 @@ Portable.Licensing is uses cryptographic algorithms to help you ensure that your
 		<Reference Include="System.Security" />
 		<Reference Include="System" />
 		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
 
-		<PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.6.1" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.6.1" />
 	</ItemGroup>
 	
-	<ItemGroup Condition=" '$(TargetFramework)' != 'net462' and '$(TargetFramework)' != 'netstandard2.0' ">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net8.0' ">
 		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133" PrivateAssets="All" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.7.115" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 </Project>
